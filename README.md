@@ -1,6 +1,5 @@
 <div align="center">
   <img src="https://capsule-render.vercel.app/render?type=slant&color=auto&height=200&section=header&text=Hello&fontSize=90&caption=I'm%20YoonMin&fontAlignY=40&captionAlignY=70" />
-</div>
 
 <br />
 
@@ -8,7 +7,6 @@
   <h2>🙌 Introduction</h2>
   <p>안녕하세요! 프론트 개발자로 일한 경험이 있으며, 현재는 공부 중입니다.</p>
   <p>프론트와 백엔드 모두 관심 있는 열정 가득한 신입 개발자입니다 💜</p>
-</div>
 
 <br />
 
@@ -21,7 +19,6 @@
   <br />
   <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=Java&logoColor=white"/>
   <img src="https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=C&logoColor=white"/>
-</div>
 
 <br />
 
