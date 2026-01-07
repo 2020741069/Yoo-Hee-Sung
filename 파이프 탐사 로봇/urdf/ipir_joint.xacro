@@ -1,0 +1,324 @@
+<?xml version="1.0" ?>
+<robot name="ipir_joint" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find inpipe_robot)/urdf/materials.xacro" />
+<xacro:include filename="$(find inpipe_robot)/urdf/ipir_joint.trans" />
+<xacro:include filename="$(find inpipe_robot)/urdf/ipir_joint.gazebo" />
+<xacro:include filename="$(find inpipe_robot)/urdf/ros2_control/ipir_ros2_control.xacro" />
+
+<link name="odom"/>
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.17541030046030262 3.928493990302075e-05 -0.01352541440466145" rpy="0 0 0"/>
+    <mass value="0.16024284518242346"/>
+    <inertia ixx="9.0844e-05" iyy="6.6976e-05" izz="6.9672e-05" ixy="-5.2604e-07" iyz="3.8996e-07" ixz="2.4139e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Plastic-Glossy(Black)"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_link">
+  <inertial>
+    <origin xyz="-0.056282877016992985 -0.013484471080203871 0.00026677007032810315" rpy="0 0 0"/>
+    <mass value="0.214"/>
+    <inertia ixx="2.0631e-04" iyy="2.4274e-04" izz="3.8054e-04" ixy="2.0416e-05" iyz="3.6565e-07" ixz="-2.0529e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.136 -0.01895 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/front_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Trans-White"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.136 -0.01895 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/front_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mid_1_link">
+  <inertial>
+    <origin xyz="-0.0641177838817207 -0.01694424806812528 4.947874036676852e-05" rpy="0 0 0"/>
+    <mass value="0.389"/>
+    <inertia ixx="4.3003e-04" iyy="3.2357e-04" izz="6.3781e-04" ixy="1.4445e-06" iyz="9.9132e-10" ixz="7.3296e-08"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.017 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/mid_1_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Trans-White"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.017 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/mid_1_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mid_2_link">
+  <inertial>
+    <origin xyz="-0.06425908155233981 -0.016943369617482138 1.8145099624598135e-05" rpy="0 0 0"/>
+    <mass value="0.389"/>
+    <inertia ixx="4.3044e-04" iyy="3.1988e-04" izz="6.3402e-04" ixy="1.4358e-06" iyz="5.4602e-09" ixz="3.3803e-07"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.136 -0.017 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/mid_2_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Trans-White"/>
+  </visual>
+  <collision>
+    <origin xyz="0.136 -0.017 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/mid_2_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rear_link">
+  <inertial>
+    <origin xyz="-0.07553839321563721 -0.02301916457849589 0.0002861228071910718" rpy="0 0 0"/>
+    <mass value="0.214"/>
+    <inertia ixx="1.9381e-04" iyy="2.9881e-04" izz="4.2640e-04" ixy="4.5205e-06" iyz="-2.3748e-07" ixz="2.2999e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.272 -0.017 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/rear_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Trans-White"/>
+  </visual>
+  <collision>
+    <origin xyz="0.272 -0.017 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/rear_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roll_motor_link">
+  <inertial>
+    <origin xyz="-0.040645304555168404 -0.029639501944408397 2.5415971504229718e-18" rpy="0 0 0"/>
+    <mass value="0.157"/>
+    <inertia ixx="4.5111e-05" iyy="4.4776e-05" izz="7.0113e-05" ixy="-4.3928e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.408 -0.01895 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/roll_motor_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Trans-White"/>
+  </visual>
+  <collision>
+    <origin xyz="0.408 -0.01895 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/roll_motor_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_wheel_link">
+  <inertial>
+    <origin xyz="-3.8197670510731314e-07 0.0020000390046861992 3.7241520965216283e-07" rpy="0 0 0"/>
+    <mass value="0.8152780188502571"/>
+    <inertia ixx="0.001678" iyy="0.000269" izz="0.001678" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.002 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/front_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Plastic-Glossy(Black)"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.002 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/front_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mid_wheel_link">
+  <inertial>
+    <origin xyz="4.576147836499178e-07 0.0020000390085600853 -2.4494861491912385e-07" rpy="0 0 0"/>
+    <mass value="0.8151970524307767"/>
+    <inertia ixx="0.001677" iyy="0.000269" izz="0.001677" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.136 0.002 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/mid_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Plastic-Glossy(Black)"/>
+  </visual>
+  <collision>
+    <origin xyz="0.136 0.002 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/mid_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rear_wheel_link">
+  <inertial>
+    <origin xyz="-8.919532772933003e-07 0.0020000390102683963 1.0547377480368319e-07" rpy="0 0 0"/>
+    <mass value="0.8151613552461404"/>
+    <inertia ixx="0.001677" iyy="0.000269" izz="0.001677" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.272 0.002 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/rear_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Plastic-Glossy(Black)"/>
+  </visual>
+  <collision>
+    <origin xyz="0.272 0.002 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/rear_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roll_wheel_link">
+  <inertial>
+    <origin xyz="-0.013101928407207697 4.603704902842636e-07 -4.912025494230328e-07" rpy="0 0 0"/>
+    <mass value="0.38223605489056184"/>
+    <inertia ixx="0.000134" iyy="8.7e-05" izz="8.7e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.4739 0.00025 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/roll_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Plastic-Glossy(Black)"/>
+  </visual>
+  <collision>
+    <origin xyz="0.4739 0.00025 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find inpipe_robot)/meshes/roll_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_link"/>
+
+<link name="camera_link"/>
+
+<link name="optical_camera_link"/>
+
+<joint name="base_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="odom"/>
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <!-- <origin xyz="0.0 0.19 0.0" rpy="0 0 0"/> -->
+</joint>
+
+<joint name="lidar_joint" type="revolute">
+  <origin xyz="0.136 0.01895 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_link"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+  <limit upper="1.570796" lower="-1.832596" effort="100" velocity="100"/>
+</joint>
+
+<joint name="front_tilt_joint" type="revolute">
+  <origin xyz="-0.136 -0.00195 0.0" rpy="0 0 0"/>
+  <parent link="front_link"/>
+  <child link="mid_1_link"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="2.094395" lower="-2.094395" effort="100" velocity="100"/>
+</joint>
+
+<joint name="mid_tilt_joint" type="revolute">
+  <origin xyz="-0.136 0.0 0.0" rpy="0 0 0"/>
+  <parent link="mid_1_link"/>
+  <child link="mid_2_link"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="2.094395" lower="-2.094395" effort="100" velocity="100"/>
+</joint>
+
+<joint name="rear_tilt_joint" type="revolute">
+  <origin xyz="-0.136 0.0 0.0" rpy="0 0 0"/>
+  <parent link="mid_2_link"/>
+  <child link="rear_link"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="2.094395" lower="-2.094395" effort="100" velocity="100"/>
+</joint>
+
+<joint name="roll_tilt_joint" type="revolute">
+  <origin xyz="-0.136 0.00195 -0.0" rpy="0 0 0"/>
+  <parent link="rear_link"/>
+  <child link="roll_motor_link"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="1.919862" lower="-1.919862" effort="100" velocity="100"/>
+</joint>
+
+<joint name="front_wheel_joint" type="continuous">
+  <!-- <origin xyz="0.0 -0.019 -0.0" rpy="0 0 0"/> -->
+  <origin xyz="0.0 -0.017 -0.0" rpy="0 0 0"/>
+  <parent link="mid_1_link"/>
+  <child link="front_wheel_link"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="mid_wheel_joint" type="continuous">
+  <origin xyz="0.0 -0.017 -0.0" rpy="0 0 0"/>
+  <parent link="mid_2_link"/>
+  <child link="mid_wheel_link"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rear_wheel_joint" type="continuous">
+  <origin xyz="0.0 -0.017 -0.0" rpy="0 0 0"/>
+  <parent link="rear_link"/>
+  <child link="rear_wheel_link"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="roll_wheel_joint" type="continuous">
+  <origin xyz="-0.0659 -0.0192 0.0" rpy="0 0 0"/>
+  <parent link="roll_motor_link"/>
+  <child link="roll_wheel_link"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="camera_joint" type="fixed">
+  <origin xyz="0.066 -0.019 0.0" rpy="0.0 0.0 0.0"/>
+  <parent link="front_link"/>
+  <child link="camera_link"/>
+  <axis xyz="0.0 0.0 0.0"/>
+  <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+</joint>
+
+<joint name="optical_camera_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="${-pi/2} 0.0 ${-pi/2}"/>
+  <parent link="camera_link"/>
+  <child link="optical_camera_link"/>
+  <axis xyz="0.0 0.0 0.0"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <origin xyz="0.066 -0.019 0.0" rpy="0.0 ${pi/2} ${pi/2}"/>
+  <parent link="front_link"/>
+  <child link="imu_link"/>
+</joint>
+
+</robot>

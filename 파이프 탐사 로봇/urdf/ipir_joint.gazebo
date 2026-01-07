@@ -1,0 +1,162 @@
+<?xml version="1.0" ?>
+<robot name="ipir_joint" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+<xacro:property name="wheel_color" value="Gazebo/Black" />
+<xacro:property name="frame_color" value="Gazebo/White" />
+
+<gazebo>
+  <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+    <robot_param>robot_description</robot_param>
+    <robot_param_node>robot_state_publisher</robot_param_node>
+    <parameters>$(find inpipe_robot)/config/controllers/ipir_controller.yaml</parameters>
+  </plugin>
+</gazebo>
+
+<gazebo reference="base_link">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="front_link">
+  <material>${frame_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="mid_1_link">
+  <material>${frame_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="mid_2_link">
+  <material>${frame_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="rear_link">
+  <material>${frame_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="roll_motor_link">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="front_wheel_link">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="mid_wheel_link">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="rear_wheel_link">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="roll_wheel_link">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="imu_link">
+  <sensor name="imu" type="imu">
+    <always_on>true</always_on>
+    <update_rate>200</update_rate>
+    <topic>imu</topic>
+    <imu>
+      <angular_velocity>
+        <x>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+          </noise>
+        </z>
+      </angular_velocity>
+      <linear_acceleration>
+        <x>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+          </noise>
+        </z>
+      </linear_acceleration>
+    </imu>
+  </sensor>
+</gazebo>
+
+<gazebo reference="camera_link">
+  <material>Gazebo/Black</material>
+  <sensor name="camera" type="camera">
+    <pose>0 0 0 0 0 0</pose>
+    <always_on>true</always_on>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
+    <topic>camera/image_raw</topic>
+    <gz_frame_id>optical_camera_link</gz_frame_id>
+    <camera>
+      <camera_info_topic>camera/camera_info</camera_info_topic>
+      <horizontal_fov>1.089</horizontal_fov>
+      <image>
+        <format>R8G8B8</format>
+        <width>640</width>
+        <height>480</height>
+      </image>
+      <clip>
+        <near>0.05</near>
+        <far>8.0</far>
+      </clip>
+    </camera>
+  </sensor>
+</gazebo>
+
+</robot>

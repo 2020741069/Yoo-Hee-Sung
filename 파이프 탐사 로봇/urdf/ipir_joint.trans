@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<robot name="ipir_joint" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="lidar_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="lidar_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="lidar_joint_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="front_tilt_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="front_tilt_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="front_tilt_joint_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="mid_tilt_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="mid_tilt_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="mid_tilt_joint_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rear_tilt_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rear_tilt_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rear_tilt_joint_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="roll_tilt_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="roll_tilt_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="roll_tilt_joint_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="front_wheel_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="front_wheel_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="front_wheel_joint_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="mid_wheel_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="mid_wheel_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="mid_wheel_joint_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rear_wheel_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rear_wheel_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rear_wheel_joint_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="roll_wheel_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="roll_wheel_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="roll_wheel_joint_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="imu_joint_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="imu_joint">
+    <hardwareInterface>hardware_interface/IMU</hardwareInterface>
+  </joint>
+</transmission>
+
+</robot>
