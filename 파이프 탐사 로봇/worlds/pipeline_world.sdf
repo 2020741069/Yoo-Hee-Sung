@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <world name="pipeline_world">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin
+      filename="libignition-gazebo-physics-system.so"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+
+    <model name="pipeline">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+              <mesh>
+                <uri>model://pipeline/model.dae</uri>
+              </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://pipeline/model.dae</uri>
+            </mesh>
+          </geometry>
+          <!-- <material>
+          </material> -->
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
